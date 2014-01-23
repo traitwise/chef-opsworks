@@ -7,10 +7,10 @@ Chef::Log.info("Executing write_app_data.rb ... ")
 # I get the path to the config folder of the deploy in progress?
 #
 
-Chef::Log.info( "The node object contains: #{node.to_hash.to_yaml}")
+#Chef::Log.info( "The node object contains: #{node.to_hash.to_yaml}")
 
 node[:deploy].each do |app, deploy|
-  filename = File.join( deploy[:deploy_to], 'app_data.yml' )
+  filename = File.join( deploy[:deploy_to], 'shared', 'config', 'app_data.yml' )
   Chef::Log.info(" --> app data will be written to #{filename}")
   File.open(filename,'w') do |file|
     hash = node[:app_data][app].to_hash

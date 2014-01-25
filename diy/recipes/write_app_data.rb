@@ -11,7 +11,9 @@ Chef::Log.info("Executing write_app_data.rb ... ")
 
 
 node[:deploy].each do |app, deploy|
-  file File.join(deploy[:deploy_to], 'shared', 'config', 'app_data.yml') do
-    content YAML.dump(node[:app_data][app].to_hash)
+  if node[:app_data][app]
+    file File.join(deploy[:deploy_to], 'shared', 'config', 'app_data.yml') do
+      content YAML.dump(node[:app_data][app].to_hash)
+    end
   end
 end

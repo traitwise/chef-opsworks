@@ -13,7 +13,7 @@
 #
 cron 'create_and_import_analytics' do
     minute "*/10"
-    command '/srv/www/diy_prod/user_scripts/create_and_import_fresh_analytics.sh'
+    command '/srv/www/diy_prod/current/user_scripts/create_and_import_fresh_analytics.sh'
 end
 
 #
@@ -23,7 +23,7 @@ end
 # cron 'run_full_analytics' do
 #     hour "3"
 #     minute "0"
-#     command '/srv/www/diy_prod/user_scripts/run_full_twstat_analytics.sh'
+#     command '/srv/www/diy_prod/current/user_scripts/run_full_twstat_analytics.sh'
 # end
 
 

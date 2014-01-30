@@ -12,6 +12,7 @@
 # Every 10 minutes
 #
 cron 'create_and_import_analytics' do
+    user "deploy"
     minute "*/10"
     command '/srv/www/diy_prod/current/user_scripts/create_and_import_fresh_analytics.sh'
 end
@@ -21,6 +22,7 @@ end
 # 3am
 #
 # cron 'run_full_analytics' do
+#     user "deploy"
 #     hour "3"
 #     minute "0"
 #     command '/srv/www/diy_prod/current/user_scripts/run_full_twstat_analytics.sh'

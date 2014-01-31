@@ -1,5 +1,7 @@
 
-Chef::Log.info("Executing write_app_data.rb ... ")
+me = `whoami`
+
+Chef::Log.info("Executing write_app_data.rb as #{me}... ")
 
 #
 # I want to this this file into current/config, but the current symlink has not been

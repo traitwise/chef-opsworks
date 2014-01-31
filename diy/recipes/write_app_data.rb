@@ -9,9 +9,20 @@ Chef::Log.info("Executing write_app_data.rb ... ")
 
 #Chef::Log.info( "The node object contains: #{node.to_hash.to_yaml}")
 
+Chef::Log.info( "*** WAD")
+Chef::Log.info( "node[:app_data] is #{node[:app_data].to_hash.to_yaml}" ) if node[:app_data]
+
 
 node[:deploy].each do |app, deploy|
+  Chef::Log.info( "*** WAD")
+  Chef::Log.info( "app is #{app.to_s}")
+  Chef::Log.info( "*** WAD")
+  Chef::Log.info( "deploy is #{deploy.to_hash.to_yaml}")
+
   if node[:app_data][app]
+    Chef::Log.info( "*** WAD")
+    Chef::Log.info( "Writing to #{deploy[:deploy_to]}/shared/config/app_data.yml app_data: #{node[:app_data][app].to_hash.to_yaml}")
+
     file File.join(deploy[:deploy_to], 'shared', 'config', 'app_data.yml') do
       content YAML.dump(node[:app_data][app].to_hash)
     end

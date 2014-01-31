@@ -15,7 +15,7 @@ Chef::Log.info( "node[:app_data] is #{node[:app_data].to_hash.to_yaml}" ) if nod
 
 node[:deploy].each do |app, deploy|
   Chef::Log.info( "*** WAD")
-  path = '#{deploy[:deploy_to]}/shared/config'
+  path = "#{deploy[:deploy_to]}/shared/config"
   shared_exists = File.exist? path
   Chef::Log.info( "The path #{path} exists -> #{shared_exists}")
 
@@ -36,7 +36,7 @@ node[:deploy].each do |app, deploy|
   end
 
   Chef::Log.info( "*** WAD")
-  path = '#{deploy[:deploy_to]}/shared/config/app_data.yml'
+  path = "#{deploy[:deploy_to]}/shared/config/app_data.yml"
   shared_exists = File.exist? path
   Chef::Log.info( "The path #{path} exists -> #{shared_exists}")
 

@@ -9,12 +9,12 @@
 
 
 #
-# backup database at top of every hour.  this should be done from the read-replica
-# to avoid bogging down IO on the master.
+# backup database at top of every hour (2min after to allow most recent import to occur first).
+# This should be done from the read-replica to avoid bogging down IO on the master.
 #
 cron 'backup_database' do
     user "deploy"
-    minute "0"
+    minute "2"
     command '/srv/www/diy_prod/current/user_scripts/backup_databases.sh'
 end
 

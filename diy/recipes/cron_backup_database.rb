@@ -15,6 +15,6 @@
 cron 'backup_database' do
     user "deploy"
     minute "2"
-    command '/srv/www/diy_prod/current/user_scripts/backup_databases.sh'
+    command 'cd /home/deploy && rake backup_database'
 end
 

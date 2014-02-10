@@ -9,9 +9,10 @@
 # 2:20am
 #
 cron 'ga_housekeeping_dbchoose' do
-    hour "2"
-    minute "20"
-    command 'cd /srv/www/diy_prod/current; ./script/rails runner -e production /srv/www/diy_prod/current/lib/clear_blank_dbchoose_responses.rb'
+  user "deploy"
+  hour "8"
+  minute "20"
+  command 'cd /srv/www/diy_prod/current; ./script/rails runner -e production /srv/www/diy_prod/current/lib/clear_blank_dbchoose_responses.rb'
 end
 
 

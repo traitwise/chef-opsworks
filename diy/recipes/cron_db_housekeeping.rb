@@ -9,7 +9,8 @@
 # 2:10am
 #
 cron 'db_housekeeping' do
-    hour "2"
+    user "deploy"
+    hour "8"
     minute "10"
     command 'cd /srv/www/diy_prod/current; rake database_housekeeping'
 end

@@ -15,6 +15,6 @@
 cron 'backup_database' do
     user "deploy"
     minute "2"
-    command "bash -l -c 'cd /srv/www/diy_prod/current; rake backup_database'"
+    command "cd /srv/www/diy_prod/current; PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin rake backup_database"
 end
 

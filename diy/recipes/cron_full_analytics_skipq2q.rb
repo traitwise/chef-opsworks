@@ -13,10 +13,10 @@
 # Run full analytics once overnight.  Will get imported by above.
 # 3am
 #
-cron 'run_full_analytics' do
+cron 'test_full_analytics' do
     user "deploy"
     hour "0"
-    minute "50"
+    minute "58"
     command '/srv/www/diy_prod/current/user_scripts/run_full_twstat_analytics.sh --skipQ2Q'
 end
 

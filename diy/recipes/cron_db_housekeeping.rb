@@ -12,6 +12,6 @@ cron 'db_housekeeping' do
     user "deploy"
     hour "8"
     minute "10"
-    command 'cd /srv/www/diy_prod/current; PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin rake database_housekeeping'
+    command 'cd /srv/www/diy_prod/current; PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin rake database_housekeeping >> /home/deploy/cron_db_housekeeping.log'
 end
 

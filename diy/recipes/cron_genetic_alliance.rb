@@ -12,7 +12,7 @@ cron 'ga_housekeeping_dbchoose' do
   user "deploy"
   hour "8"
   minute "20"
-  command 'cd /srv/www/diy_prod/current; ./script/rails runner -e production /srv/www/diy_prod/current/lib/clear_blank_dbchoose_responses.rb'
+  command 'cd /srv/www/diy_prod/current; ./script/rails runner -e production /srv/www/diy_prod/current/lib/clear_blank_dbchoose_responses.rb >> /home/deploy/cron_genetic_alliance.log'
 end
 
 

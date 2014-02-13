@@ -15,8 +15,8 @@
 #
 cron 'test_full_analytics' do
     user "deploy"
-    hour "0"
-    minute "58"
+    hour "18"
+    minute "40"
     command '/srv/www/diy_prod/current/user_scripts/run_full_twstat_analytics.sh --skipQ2Q'
 end
 

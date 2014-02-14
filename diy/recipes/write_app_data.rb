@@ -12,6 +12,18 @@ Chef::Log.info("Executing write_app_data.rb as #{me}... ")
 
 node[:deploy].each do |app, deploy|
   if node[:app_data][app]
+    #
+    # Ensure the shared/config folder exists for this app since on DJ workers without 
+    # all the normal rails recipes it may not...
+    #
+    directory "#{deploy[:deploy_to]}/shared/config"
+      owner "deploy"
+      group "www-data"
+      mode 0744
+      recursive true
+      action :create
+    end
+
     Chef::Log.info( "Writing to #{deploy[:deploy_to]}/shared/config/app_data.yml app_data: #{node[:app_data][app].to_hash.to_yaml}")
 
     file File.join(deploy[:deploy_to], 'shared', 'config', 'app_data.yml') do

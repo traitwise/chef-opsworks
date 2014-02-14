@@ -16,10 +16,10 @@ node[:deploy].each do |app, deploy|
     # Ensure the shared/config folder exists for this app since on DJ workers without 
     # all the normal rails recipes it may not...
     #
-    directory "#{deploy[:deploy_to]}/shared/config"
+    directory "#{deploy[:deploy_to]}/shared/config" do
       owner "deploy"
       group "www-data"
-      mode 0744
+      mode 0774
       recursive true
       action :create
     end

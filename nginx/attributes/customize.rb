@@ -1,0 +1,1 @@
+normal[:nginx][:proxy_buffer_size] = '16k'

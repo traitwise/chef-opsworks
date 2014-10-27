@@ -39,10 +39,15 @@ server {
   <% if node[:nginx] && node[:nginx][:proxy_send_timeout] -%>
     proxy_send_timeout <%= node[:nginx][:proxy_send_timeout] %>;
   <% end -%>
+  <% if node[:nginx] && node[:nginx][:proxy_buffers] -%>
+    proxy_buffers <%= node[:nginx][:proxy_buffers] %>;
+  <% end -%>
   <% if node[:nginx] && node[:nginx][:proxy_buffer_size] -%>
     proxy_buffer_size <%= node[:nginx][:proxy_buffer_size] %>;
   <% end -%>
-
+  <% if node[:nginx] && node[:nginx][:proxy_busy_buffers_size] -%>
+    proxy_busy_buffers_size <%= node[:nginx][:proxy_busy_buffers_size] %>;
+  <% end -%>
 
     # If you don't find the filename in the static files
     # Then request it from the unicorn server
@@ -102,8 +107,14 @@ server {
   <% if node[:nginx] && node[:nginx][:proxy_send_timeout] -%>
     proxy_send_timeout <%= node[:nginx][:proxy_send_timeout] %>;
   <% end -%>
+  <% if node[:nginx] && node[:nginx][:proxy_buffers] -%>
+    proxy_buffers <%= node[:nginx][:proxy_buffers] %>;
+  <% end -%>
   <% if node[:nginx] && node[:nginx][:proxy_buffer_size] -%>
     proxy_buffer_size <%= node[:nginx][:proxy_buffer_size] %>;
+  <% end -%>
+  <% if node[:nginx] && node[:nginx][:proxy_busy_buffers_size] -%>
+    proxy_busy_buffers_size <%= node[:nginx][:proxy_busy_buffers_size] %>;
   <% end -%>
 
     # If you don't find the filename in the static files
